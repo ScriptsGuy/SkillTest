@@ -1,0 +1,241 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+    <div class="container-fluid bg-light py-3">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+                <div class="card card-body shadow">
+                    <h3 class="text-center mb-4">Computers & Accessories</h3>
+                    <form
+                     class="form-horizontal justify-content-center"
+                      action="/admin/ComputersAccessories"
+                      method="POST"
+                      >
+                   
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="" for="Category">Category</label>
+                            
+                            <select onchange="showMe(this);" class="form-control input-lg" name="category">
+                                <option selected>select</option>
+                                <option value="Desktop PCs and Central unit">Desktop PCs and Central unit</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Desktop Computer parts">Desktop Computer parts</option>
+                                <option value="Laptop parts">Laptop parts</option>
+                                <option value="Screens &amp; Data Show">Screens &amp; Data Show</option>
+                                <option value="Printers &amp; Scanners">Printers &amp; Scanners</option>
+                                <option value="Network &amp; Connection">Network &amp; Connection</option>
+                                <option value="External storage">External storage</option>
+                                <option value="Applications &amp; Software">Applications &amp; Software</option>
+                                <option value="Accessories &amp; Consumables">Accessories &amp; Consumables</option>
+                                <option value="UPS &amp; Stabilizers">UPS &amp; Stabilizers</option>
+                                <option value="Other">Other</option>
+                        
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="Name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Name"
+                                class="form-control input-lg"
+                              />
+                            
+                        </div>
+                         <div class="form-group">
+                            <label class="" for="productCondition">Condition</label>
+                            
+                              <select class="form-control input-lg" name="productCondition">
+                                <option selected>Good Condition</option>
+                                <option value="Never Used">Never Used</option>
+                                <option value="Good as New/Packeged">Good as New/Packeged</option>
+                                <option value="Average State">Average State</option>
+                                
+                            </select>
+                            
+                        </div>
+                        <div class="form-group ">
+                            <label class="" for="Brand">Brand</label>
+                            <input
+                                type="text"
+                                id="Brand"
+                                name="brand"
+                                placeholder="Brand"
+                                class="form-control input-lg"
+                              />
+                            
+                        </div>
+                     <div class="form-group idShowMe"  style="display: none">
+                            <label class="" for="Processor">Processor</label>
+                            <input
+                                type="text"
+                                id="Processor"
+                                name="processor"
+                                placeholder="Processor"
+                                class="form-control input-lg"
+                              />
+                            
+                        </div>
+                        <div class="form-group idShowMe"  style="display: none">
+                            <label class="" for="RAM">RAM</label>
+                            
+                              <select class="form-control input-lg" name="RAM">
+                                <option selected>2GB</option>
+                                <option value="4GB">4GB</option>
+                                <option value="4GB">4GB</option>
+                                <option value="8GB">8GB</option>
+                                <option value="16GB">16GB</option>
+                                <option value="32GB">32GB</option>
+                                
+                            </select>
+                            
+                        </div>
+                        <div class="form-group idShowMe"  style="display: none">
+                            <label class="" for="diskType">Disk Type</label>
+                            
+                              <select class="form-control input-lg" name="diskType">
+                                <option selected>HDD</option>
+                                <option value="SSD">SSD</option>
+                                <option value="Hybrid/SSHD">Hybrid/SSHD</option>
+                                <option value="SSD/HDD">SSD/HDD</option>
+                            
+                            </select>
+                            
+                        </div>
+                        <div class="form-group idShowMe"  style="display: none">
+                            <label class="" for="ScreenSize">Screen Size</label>
+                            <input
+                                type="text"
+                                id="ScreenSize"
+                                name="screenSize"
+                                placeholder="By inch"
+                                class="form-control input-lg"
+                              />
+                            
+                        </div>
+                        <div class="form-group idShowMe"  style="display: none">
+                            <label class="" for="graphicsCard">Graphics Card</label>
+                            
+                              <select class="form-control input-lg" name="graphicsCard">
+                                <option selected>Integrated</option>
+                                <option value="Dedicated">Dedicated</option>
+                                <option value="Integrated/Dedicated">Integrated/Dedicated</option>
+                                
+                            
+                            </select>
+                            
+                        </div>
+                            <div class="form-group ">
+                            <label class="" for="Price">Price</label>
+                            <input
+                                type="number"
+                                id="Price"
+                                name="price"
+                                placeholder="in DZD"
+                                class="form-control input-lg"
+                                step="0.01"
+                              />
+
+                            
+                            
+                              <select class="form-control input-lg" name="priceState">
+                                <option selected>Negociable</option>
+                                <option value="Fixed">Fixed</option>
+                                <option value="Offered">Offered</option>
+                                <option value=" I accept exchange"> I accept exchange</option>
+                                <option value="I don't accept exchange">I don't accept exchange</option>
+                            
+                            </select>
+                              <select class="form-control input-lg" name="exchange">
+                                <option value=" I accept exchange"> I accept exchange</option>
+                                <option value="I don't accept exchange">I don't accept exchange</option>
+                            
+                            </select>
+                            
+                        </div>
+                            <div class="form-group">
+                                <label class="" for="image">Image</label>
+                                <input
+                                    type="text"
+                                    id="image"
+                                    name="image"
+                                    placeholder="Image"
+                                    class="form-control input-lg"
+                                  />
+                                
+                            </div>
+                             <div class="form-group">
+                                <label class="" for="city">City</label>
+                            
+                                <select class="form-control input-lg" name="city">
+                                <option value="16" selected>16 - Algiers</option>
+		<option value="9">09 - Blida</option>
+		<option value="42">42 - Tipaza</option>
+		<option value="35">35 - Boumerdes</option>
+		<option value="31">31 - Oran</option><option disabled=""></option>
+			<option value="49">Foreign</option><option disabled="">-----------------------</option><option value="1">01 - Adrar</option><option value="2">02 - Chlef</option><option value="3">03 - Laghouat</option><option value="4">04 - Oum el bouaghi</option><option value="5">05 - Batna</option><option value="6">06 - Bejaia</option><option value="7">07 - Biskra</option><option value="8">08 - Bechar</option><option value="9">09 - Blida</option><option value="10">10 - Bouira</option><option value="11">11 - Tamanrasset</option><option value="12">12 - Tebessa</option><option value="13">13 - Tlemcen</option><option value="14">14 - Tiaret</option><option value="15">15 - Tizi ouzou</option><option value="16">16 - Algiers</option><option value="17">17 - Djelfa</option><option value="18">18 - Jijel</option><option value="19">19 - Setif</option><option value="20">20 - Saida</option><option value="21">21 - Skikda</option><option value="22">22 - Sidi bel abbes</option><option value="23">23 - Annaba</option><option value="24">24 - Guelma</option><option value="25">25 - Constantine</option><option value="26">26 - Medea</option><option value="27">27 - Mostaganem</option><option value="28">28 - Msila</option><option value="29">29 - Mascara</option><option value="30">30 - Ouargla</option><option value="31">31 - Oran</option><option value="32">32 - El bayadh</option><option value="33">33 - Illizi</option><option value="34">34 - Bordj bou arreridj</option><option value="35">35 - Boumerdes</option><option value="36">36 - El taref</option><option value="37">37 - Tindouf</option><option value="38">38 - Tissemsilt</option><option value="39">39 - El oued</option><option value="40">40 - Khenchela</option><option value="41">41 - Souk ahras</option><option value="42">42 - Tipaza</option><option value="43">43 - Mila</option><option value="44">44 - Ain defla</option><option value="45">45 - Naama</option><option value="46">46 - Ain temouchent</option><option value="47">47 - Ghardaia</option><option value="48">48 - Relizane</option>
+                                
+                                </select>
+                            
+                        </div>
+                        <div class="form-group">
+                                <label class="" for="phoneNumber">Phone Number</label>
+                                <input
+                                    type="text"
+                                    id="phoneNumber"
+                                    name="phoneNumber"
+                                    placeholder="EX: 0696257362"
+                                    class="form-control input-lg"
+                                  />
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="" for="email">Email</label>
+                                <input
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    placeholder="email"
+                                    class="form-control input-lg"
+                                  />
+                                
+                            </div>
+            
+                         <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control input-lg" placeholder="Add another information here ..." name="description" rows="5" id="description"></textarea>
+                        </div>
+                      
+                        <input class="btn btn-lg btn-outline-success float-right" value="Add List" type="submit">
+                    </fieldset>
+                  </form>  
+                </div>
+        </div>
+    </div>
+</div>
+<script>
+function showMe(e) {
+    var strdisplay = e.options[e.selectedIndex].value;
+    var e = document.getElementsByClassName("idShowMe");
+    if(strdisplay == "Desktop PCs and Central unit" || strdisplay == "Laptop") {
+        for (let i = 0; i < e.length; i++) {
+            e[i].style.display = "block";
+            
+        }
+       
+    } else {
+         for (let i = 0; i < e.length; i++) {
+            e[i].style.display = "none";
+
+        }
+       
+    }
+}
+</script>
+
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>
+
