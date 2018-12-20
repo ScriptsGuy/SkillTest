@@ -9,7 +9,7 @@
                     <h3 class="text-center mb-4">Computers & Accessories</h3>
                     <form
                      class="form-horizontal justify-content-center"
-                      action="/admin/ComputersAccessories"
+                      action="/admin/<% if (editing) { %>edit-ComputersAccessories<% } else { %>ComputersAccessories<% } %>"
                       method="POST"
                       >
                    
@@ -40,6 +40,7 @@
                                 type="text"
                                 id="name"
                                 name="name"
+                                value="<% if (editing) { %><%= product.name %><% } %>"
                                 placeholder="Name"
                                 class="form-control input-lg"
                               />
@@ -63,6 +64,7 @@
                                 type="text"
                                 id="Brand"
                                 name="brand"
+                                value="<% if (editing) { %><%= product.brand %><% } %>"
                                 placeholder="Brand"
                                 class="form-control input-lg"
                               />
@@ -74,6 +76,7 @@
                                 type="text"
                                 id="Processor"
                                 name="processor"
+                                value="<% if (editing) { %><%= product.processor %><% } %>"
                                 placeholder="Processor"
                                 class="form-control input-lg"
                               />
@@ -111,6 +114,7 @@
                                 type="text"
                                 id="ScreenSize"
                                 name="screenSize"
+                                value="<% if (editing) { %><%= product.screenSize %><% } %>"
                                 placeholder="By inch"
                                 class="form-control input-lg"
                               />
@@ -134,6 +138,7 @@
                                 type="number"
                                 id="Price"
                                 name="price"
+                                value="<% if (editing) { %><%= product.price %><% } %>"
                                 placeholder="in DZD"
                                 class="form-control input-lg"
                                 step="0.01"
@@ -165,6 +170,7 @@
                                     type="text"
                                     id="image"
                                     name="image"
+                                    value="<% if (editing) { %><%= product.image %><% } %>"
                                     placeholder="Image"
                                     class="form-control input-lg"
                                   />
@@ -190,6 +196,7 @@
                                     type="text"
                                     id="phoneNumber"
                                     name="phoneNumber"
+                                    value="<% if (editing) { %><%= product.phoneNumber %><% } %>"
                                     placeholder="EX: 0696257362"
                                     class="form-control input-lg"
                                   />
@@ -201,6 +208,7 @@
                                     type="text"
                                     id="email"
                                     name="email"
+                                    value="<% if (editing) { %><%= product.email %><% } %>"
                                     placeholder="email"
                                     class="form-control input-lg"
                                   />
@@ -209,10 +217,13 @@
             
                          <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control input-lg" placeholder="Add another information here ..." name="description" rows="5" id="description"></textarea>
+                            <textarea class="form-control input-lg" placeholder="Add another information here ..." name="description" rows="5" id="description"><% if (editing) { %><%= product.description %><% } %></textarea>
                         </div>
+                        <% if (editing) { %>
+                         <input type="hidden" name="productId" value="<%= product.id %>">
+                        <% } %>
                       
-                        <input class="btn btn-lg btn-outline-success float-right" value="Add List" type="submit">
+                        <button class="btn btn-lg btn-outline-success float-right" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
                     </fieldset>
                   </form>  
                 </div>

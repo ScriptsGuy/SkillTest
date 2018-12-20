@@ -56,7 +56,11 @@
                      <div class="card-body">
                           <h4 class="card-title"><%= product.name %> </h4>
                            <h5>$<%= product.price %></h5>
-                         <a href="#" class="btn btn-info">Details</a>
+                         <a href="/products/<%= product.id %>" class="btn btn-info">Details</a>
+                        <form method="POST" action="/wishlist">
+                          <button type="submit" class="btn btn-outline-danger"><i class="fas fa-heart"></i></button>
+                          <input type="hidden" name="productId" value="<%= product.id %>">
+                        </form>
                      </div>
                      <div class="card-footer">
                         <small class="text-muted"><%= product.category %></small>
